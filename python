@@ -1,0 +1,33 @@
+""" Johnny, a software developer, is currently engaged in a project aimed at creating a string manipulation tool for a text processing application. His primary goal is to design a recursive function capable of calculating the length of a given string, all without relying on built-in length functions.
+
+
+
+Furthermore, he intends to implement a condition to manage strings exceeding 50 characters. Can you help him?
+
+Input format :
+The input consists of a single line containing the string whose length needs to be calculated.
+
+Output format :
+If the length of the input string is less than or equal to 50 characters, the output should be "The length of the string is: {length}".
+
+If the input string length exceeds 50 characters, the output should be "Invalid"."""
+
+def calculate_length(input_string):
+    if len(input_string) > 50:
+        return None
+    return _calculate_length_recursive(input_string)
+
+def _calculate_length_recursive(input_string):
+    if input_string == "":
+        return 0
+    else:
+        return 1 + _calculate_length_recursive(input_string[1:])
+
+if __name__ == "__main__":
+    input_string = input()
+    length = calculate_length(input_string)
+
+    if length is None:
+        print("Invalid")
+    else:
+        print(f"The length of the string is: {length}")
